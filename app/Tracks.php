@@ -41,7 +41,7 @@ class Tracks
     public static function getAllTracks(int $user_id): ?array
     {
         self::initConnection();
-        $sql = 'select * from tracks where user_id = :user_id order by id desc';
+        $sql = 'select * from tracks where user_id = :user_id order by id asc';
         $stmt = Tracks::$con->prepare($sql);
         $stmt->execute([':user_id' => $user_id]);
         $tracks = $stmt->fetchAll(PDO::FETCH_ASSOC);

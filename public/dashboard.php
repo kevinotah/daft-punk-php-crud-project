@@ -27,6 +27,7 @@ $tracks = Tracks::getAllTracks($_SESSION['user_id']);
         <table>
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>ID</th>
                     <th>Title</th>
                     <th>Artist</th>
@@ -38,9 +39,12 @@ $tracks = Tracks::getAllTracks($_SESSION['user_id']);
             </thead>
             <tbody>
                 <?php
+                $rowNumber = 1;
                 foreach ($tracks as $track) {
                     echo '<tr>';
+                    echo '<td>' . $rowNumber . '</td>';
                     echo '<td>' . (int)$track['id'] . '</td>';
+                    $rowNumber++;
                     echo '<td>' . htmlspecialchars($track['title']) . '</td>';
                     echo '<td>' . htmlspecialchars($track['artist']) . '</td>';
                     echo '<td>' . htmlspecialchars($track['album']) . '</td>';
