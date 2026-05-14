@@ -32,9 +32,10 @@ $tracks = Tracks::getAllTracks($_SESSION['user_id']);
             <td>Action</td>
         </tr>
         <?php
+        $i = 1;
         foreach ($tracks as $track) {
             echo '<tr>';
-            echo '<td>' . $track['id'] . '</td>';
+            echo '<td>' . $i . '</td>';
             echo '<td>' . $track['title'] . '</td>';
             echo '<td>' . $track['artist'] . '</td>';
             echo '<td>' . $track['album'] . '</td>';
@@ -46,6 +47,7 @@ $tracks = Tracks::getAllTracks($_SESSION['user_id']);
             <a href="delete_track.php?id=' . $track['id'] . '">[Delete]</a>
             </td>';
             echo '</tr>';
+            $i++;
         }
         ?>
     </table>

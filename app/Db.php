@@ -1,9 +1,5 @@
 <?php
-/*
- Daft Punk: small tribute comments
- "Human After All" — this file manages PDO connection (no robots harmed)
- Easter eggs sprinkled across the project in text only.
-*/
+
 
 class Db
 {

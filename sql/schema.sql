@@ -1,5 +1,6 @@
 -- Daft Punk themed schema: tracks table for Daft Punk library
 -- Easter eggs are textual and harmless. Human After All.
+
 CREATE DATABASE IF NOT EXISTS php_project
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_unicode_ci;

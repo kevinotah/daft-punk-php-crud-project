@@ -7,12 +7,19 @@
 </head>
 <body>
     <?php
+    session_start();
     $mErr = '';
     if (isset($_GET['err']) && $_GET['err'] == 1) {
-        $mErr = 'Short Circuit! - wrong credentials';
-    }
-    if (isset($_GET['err']) && $_GET['err'] == 2) {
-        $mErr = 'Instant Crush! - access denied';
+        // Alternate between two Daft Punk error messages
+        if (!isset($_SESSION['error_toggle'])) {
+            $_SESSION['error_toggle'] = 0;
+        }
+        if ($_SESSION['error_toggle'] == 0) {
+            $mErr = 'Short Circuit! - wrong credentials';
+        } else {
+            $mErr = 'Instant Crush! - access denied';
+        }
+        $_SESSION['error_toggle'] = 1 - $_SESSION['error_toggle'];
     }
     if (isset($_GET['reg']) && $_GET['reg'] == 1) {
         $mErr = 'Veridis Quo! You can login now.';

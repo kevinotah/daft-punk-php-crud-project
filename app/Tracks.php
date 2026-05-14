@@ -1,7 +1,5 @@
 <?php
-/*
- Tracks model — manages Daft Punk track CRUD operations
-*/
+
 require_once 'Db.php';
 
 class Tracks
