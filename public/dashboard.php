@@ -27,7 +27,7 @@ $tracks = Tracks::getAllTracks($_SESSION['user_id']);
         <table>
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th>ID</th>
                     <th>Title</th>
                     <th>Artist</th>
                     <th>Album</th>
@@ -38,10 +38,9 @@ $tracks = Tracks::getAllTracks($_SESSION['user_id']);
             </thead>
             <tbody>
                 <?php
-                $i = 1;
                 foreach ($tracks as $track) {
                     echo '<tr>';
-                    echo '<td>' . $i . '</td>';
+                    echo '<td>' . (int)$track['id'] . '</td>';
                     echo '<td>' . htmlspecialchars($track['title']) . '</td>';
                     echo '<td>' . htmlspecialchars($track['artist']) . '</td>';
                     echo '<td>' . htmlspecialchars($track['album']) . '</td>';
@@ -50,10 +49,9 @@ $tracks = Tracks::getAllTracks($_SESSION['user_id']);
                     echo '<td>
                     <a href="track_view.php?id=' . $track['id'] . '">[View]</a>
                     <a href="edit_track.php?id=' . $track['id'] . '">[Edit]</a>
-                    <a href="delete_track.php?id=' . $track['id'] . '">[Delete]</a>
+                    <a href="delete_track.php?id=' . $track['id'] . '" onclick="return confirm(\'Delete this track?\');">[Delete]</a>
                     </td>';
                     echo '</tr>';
-                    $i++;
                 }
                 ?>
             </tbody>

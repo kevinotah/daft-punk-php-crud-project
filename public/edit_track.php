@@ -24,6 +24,9 @@ if (!$track) {
     <?php include 'menu.php'; ?>
     <div class="container">
         <h1>Edit Track</h1>
+        <?php if (isset($_GET['err']) && $_GET['err'] === 'year'): ?>
+            <div class="message">Invalid release year. Please use a valid year.</div>
+        <?php endif; ?>
         <div class="info">
             <p>Harder, better, faster, stronger — tweak your track carefully.</p>
         </div>
@@ -38,7 +41,7 @@ if (!$track) {
             <input type="text" id="album" name="album" value="<?= htmlspecialchars($track->getAlbum()); ?>" required>
             
             <label for="release_year">Release Year</label>
-            <input type="number" id="release_year" name="release_year" value="<?= $track->getReleaseYear(); ?>" required>
+            <input type="number" id="release_year" name="release_year" value="<?= $track->getReleaseYear(); ?>" min="1900" max="2100" step="1" required>
             
             <label for="notes">Notes</label>
             <textarea id="notes" name="notes"><?= htmlspecialchars($track->getNotes()); ?></textarea>

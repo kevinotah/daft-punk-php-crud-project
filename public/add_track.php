@@ -16,6 +16,9 @@ if (!isset($_SESSION['username'])) {
     <?php include 'menu.php'; ?>
     <div class="container">
         <h1>Add Track</h1>
+        <?php if (isset($_GET['err']) && $_GET['err'] === 'year'): ?>
+            <div class="message">Invalid release year. Please use a valid year.</div>
+        <?php endif; ?>
         <div class="info">
             <p>One more time? Add a track and let the robots dance.</p>
         </div>
@@ -30,7 +33,7 @@ if (!isset($_SESSION['username'])) {
             <input type="text" id="album" name="album" required>
             
             <label for="release_year">Release Year</label>
-            <input type="number" id="release_year" name="release_year" required>
+            <input type="number" id="release_year" name="release_year" min="1900" max="2100" step="1" required>
             
             <label for="notes">Notes</label>
             <textarea id="notes" name="notes"></textarea>

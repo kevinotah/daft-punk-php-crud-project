@@ -35,7 +35,7 @@ if (!$track) {
         </div>
         <div style="margin-top: 20px;">
             <a href="edit_track.php?id=<?= $track->getId(); ?>" class="btn">Edit</a>
-            <a href="delete_track.php?id=<?= $track->getId(); ?>" class="btn" style="border-color: #ff006e; color: #ff006e; text-shadow: 0 0 5px #ff006e;">Delete</a>
+            <a href="delete_track.php?id=<?= $track->getId(); ?>" class="btn" style="border-color: #ff006e; color: #ff006e; text-shadow: 0 0 5px #ff006e;" onclick="return confirm('Delete this track?');">Delete</a>
             <a href="dashboard.php" class="btn">Back</a>
         </div>
     </div>
