@@ -39,5 +39,6 @@ if (!$track) {
             <a href="dashboard.php" class="btn">Back</a>
         </div>
     </div>
+    <?php include 'partials/footer.php'; ?>
 </body>
 </html>

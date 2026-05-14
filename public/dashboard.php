@@ -59,5 +59,6 @@ $tracks = Tracks::getAllTracks($_SESSION['user_id']);
             </tbody>
         </table>
     </div>
+    <?php include 'partials/footer.php'; ?>
 </body>
 </html>

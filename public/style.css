@@ -254,6 +254,19 @@ footer {
     margin-top: 40px;
 }
 
+.site-footer {
+    padding-bottom: 30px;
+}
+
+.footer-image {
+    display: block;
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 14px rgba(0, 212, 255, 0.35));
+}
+
 @media (max-width: 600px) {
     nav a {
         display: block;

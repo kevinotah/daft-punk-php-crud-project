@@ -55,5 +55,6 @@
             Don't have an account? <a href="register.php">Register here</a>
         </p>
     </div>
+    <?php include 'partials/footer.php'; ?>
 </body>
 </html>

@@ -49,5 +49,6 @@ if (!$track) {
             <a href="dashboard.php" class="btn">Cancel</a>
         </form>
     </div>
+    <?php include 'partials/footer.php'; ?>
 </body>
 </html>

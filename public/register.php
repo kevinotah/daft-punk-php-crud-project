@@ -31,5 +31,6 @@
             Already have an account? <a href="login.php">Login here</a>
         </p>
     </div>
+    <?php include 'partials/footer.php'; ?>
 </body>
 </html>
