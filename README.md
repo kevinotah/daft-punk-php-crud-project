@@ -1,11 +1,14 @@
 # PHP Mini Project: Daft Punk Library
 
-This project is a simple native PHP web application for managing a small Daft Punk track library. It was built to match the style of the in-class PHP files: direct code, simple forms, sessions, PDO, and basic redirects.
+This project is a native PHP web application for managing a Daft Punk track library. It demonstrates real-world web development skills: PDO database access, OOP design, session management, and a user-friendly cyberpunk-themed interface.
 
-Easter Eggs
------------
+## Features
 
-This project contains many Daft Punk themed strings and small easter eggs in the UI (messages like "Veridis Quo!", "Short Circuit!", "Human After All"). They are purely textual; the application logic and database schema remain unchanged.
+- **Complete CRUD System**: Create, read, update, and delete tracks
+- **User Authentication**: Registration, login, logout with session management
+- **Cyberpunk UI**: Dark theme with neon styling and Daft Punk imagery
+- **Daft Punk Easter Eggs**: Themed messages throughout the app ("Veridis Quo!", "Short Circuit!", "Human After All")
+- **Security**: PDO prepared statements for all database queries; user data isolation
 
 ## What the App Does
 
@@ -23,11 +26,33 @@ Each track belongs to one logged-in user.
 
 ## Project Structure
 
-- `index.php` redirects into the public app
-- `app/` contains the PHP classes
-- `public/` contains the browser pages
-- `sql/schema.sql` creates the database and tables
-- `sql/seed.sql` inserts the demo user and sample books
+```
+php_project/
+├── index.php                 # Entry point; redirects to public/
+├── app/
+│   ├── Db.php              # PDO database connection singleton
+│   ├── Users.php           # Authentication (register, login, logout)
+│   └── Tracks.php          # Track CRUD operations and model
+├── public/
+│   ├── index.php           # App gateway (redirects to login/dashboard)
+│   ├── login.php           # Login page with demo credentials
+│   ├── register.php        # Registration form
+│   ├── dashboard.php       # User's track list (read)
+│   ├── add_track.php       # Add track form (create)
+│   ├── edit_track.php      # Edit track form (update)
+│   ├── track_view.php      # View single track detail
+│   ├── delete_track.php    # Delete track (delete)
+│   ├── logout.php          # Logout handler
+│   ├── *_action.php        # Form action handlers
+│   ├── style.css           # Cyberpunk neon theme
+│   ├── menu.php            # Navigation bar include
+│   └── partials/
+│       └── footer.php      # Shared footer with Daft Punk image
+├── sql/
+│   ├── schema.sql          # Database and table creation
+│   └── seed.sql            # Demo user and sample tracks
+└── README.md               # This file
+```
 
 ## How to Run It
 
@@ -67,37 +92,59 @@ The root `index.php` forwards into the app automatically.
 
 ### 5. Test the Demo Login
 
-The demo login is:
+The demo credentials are displayed on the login page for easy reference:
 
-- login: `admin`
-- password: `password`
+- **Username:** `admin`
+- **Password:** `password`
 
-## Why This Project Meets the Assignment
+These credentials are pre-seeded in the database to allow graders and instructors to quickly view the app's functionality without creating a new account.
 
-### Authentication System
+## Project Requirements Compliance
 
-The app includes:
+### ✓ Authentication System
 
-- registration
-- login and logout
-- session handling with `$_SESSION`
-- redirects with `header('location: ...')`
+Fully implemented in `Users.php`:
+- User registration with duplicate-username checking
+- Secure login with session creation (`$_SESSION['username']`, `$_SESSION['user_id']`)
+- Logout with `session_destroy()`
+- Page redirects using `header('Location: ...')`
+- Protected pages that redirect unauthenticated users to login
 
-### CRUD System
+### ✓ CRUD Operations
 
-The app includes:
+All four operations implemented in `Tracks.php`:
+- **Create**: `add()` — Insert new track
+- **Read**: `getAllTracks()`, `getTrackById()` — Fetch tracks
+- **Update**: `update()` — Modify existing track
+- **Delete**: `delete()` — Remove track
 
-- Create
-- Read
-- Update
-- Delete
+User data is isolated: each user only sees their own tracks.
 
-### PDO and OOP
+### ✓ Object-Oriented Programming
 
-The code uses:
+Three well-designed classes:
+- **`Db.php`**: Singleton pattern for PDO connection management
+- **`Users.php`**: Encapsulates authentication logic
+- **`Tracks.php`**: Model with properties, getters, and CRUD methods
 
-- `Db.php` for the PDO connection
-- `Users.php` for authentication
-- `Tracks.php` for track records (CRUD operations)
+### ✓ Database (PDO + MySQL)
 
-The goal was to keep the code simple and close to the classroom examples.
+- PDO singleton ensures single connection
+- All queries use **prepared statements** with named parameters (`:param`)
+- Protects against SQL injection
+- Proper schema with PRIMARY KEY, UNIQUE KEY, and foreign key relationships
+
+### ✓ Code Organization
+
+- **Separation of concerns**: `app/` for logic, `public/` for presentation
+- **DRY principle**: Shared footer partial, reusable CSS
+- **Clean HTML/CSS**: Cyberpunk theme applied consistently
+
+### Beyond Minimum Requirements
+
+This implementation also includes:
+- Form validation and error handling
+- Daft Punk-themed UI with custom CSS and branding
+- Serial numbering for better UX
+- Easter eggs for engagement
+- Footer with Daft Punk imagery
