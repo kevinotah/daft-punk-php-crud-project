@@ -6,8 +6,10 @@ VALUES (
     'password'
 );
 
-INSERT INTO books (user_id, title, author, genre, published_year, description)
+-- Seed includes sample Daft Punk tracks for demo purposes
+INSERT INTO tracks (user_id, title, artist, album, release_year, notes)
 VALUES
-    (1, 'The Pragmatic Programmer', 'Andrew Hunt and David Thomas', 'Programming', 1999, 'A practical book about writing better software.'),
-    (1, 'Clean Code', 'Robert C. Martin', 'Programming', 2008, 'A classic reference for readable and maintainable code.'),
-    (1, 'PHP Objects, Patterns, and Practice', 'Matt Zandstra', 'Web Development', 2017, 'Useful for understanding object-oriented PHP design.');
+    (1, 'Around the World', 'Daft Punk', 'Homework', 1997, 'A repetitive classic with an unforgettable groove.'),
+    (1, 'One More Time', 'Daft Punk', 'Discovery', 2000, 'Signature dance anthem.'),
+    (1, 'Harder, Better, Faster, Stronger', 'Daft Punk', 'Discovery', 2001, 'Electronic powerhouse with robotic vocals.'),
+    (1, 'Get Lucky', 'Daft Punk ft. Pharrell Williams', 'Random Access Memories', 2013, 'Funky collaboration and chart hit.');

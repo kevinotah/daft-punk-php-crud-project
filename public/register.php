@@ -9,7 +9,7 @@
     <?php
     $mErr = '';
     if (isset($_GET['err']) && $_GET['err'] == 1) {
-        $mErr = 'Username already exists';
+        $mErr = 'Robot Rock - username already exists';
     }
     echo $mErr;
     ?>
@@ -18,7 +18,7 @@
         <br>
         Password: <input type="password" name="password">
         <br>
-        <input type="submit" value="Register">
+        <input type="submit" value="Join The Robots">
         <input type="reset" value="Cancel">
     </form>
     <br>

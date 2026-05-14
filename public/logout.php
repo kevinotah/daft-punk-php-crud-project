@@ -4,4 +4,4 @@ require_once '../app/Users.php';
 
 $user = new Users();
 $user->logout();
-header('location: login.php');
+header('location: login.php?bye=1');

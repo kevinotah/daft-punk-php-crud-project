@@ -9,13 +9,16 @@
     <?php
     $mErr = '';
     if (isset($_GET['err']) && $_GET['err'] == 1) {
-        $mErr = 'Wrong username or password';
+        $mErr = 'Short Circuit! - wrong credentials';
     }
     if (isset($_GET['err']) && $_GET['err'] == 2) {
-        $mErr = 'You are not allowed';
+        $mErr = 'Instant Crush! - access denied';
     }
     if (isset($_GET['reg']) && $_GET['reg'] == 1) {
-        $mErr = 'Registration successful. You can login now.';
+        $mErr = 'Veridis Quo! You can login now.';
+    }
+    if (isset($_GET['bye']) && $_GET['bye'] == 1) {
+        $mErr = 'Human After All - you have been logged out.';
     }
     echo $mErr;
     ?>
@@ -24,7 +27,7 @@
         <br>
         Password: <input type="password" name="password">
         <br>
-        <input type="submit" value="Validate">
+        <input type="submit" value="Get Lucky">
         <input type="reset" value="Cancel">
     </form>
     <br>

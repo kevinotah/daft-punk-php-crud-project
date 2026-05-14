@@ -6,7 +6,7 @@ $password = $_POST['password'];
 
 $user = new Users();
 if ($user->login($username, $password)) {
-    header('location: dashboard.php');
+    header('location: dashboard.php?welcome=1');
 } else {
     header('location: login.php?err=1');
 }

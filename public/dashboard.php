@@ -3,43 +3,47 @@ session_start();
 if (!isset($_SESSION['username'])) {
     header('location: login.php?err=2');
 }
-require_once '../app/Books.php';
-$books = Books::getAllBooks($_SESSION['user_id']);
+require_once '../app/Tracks.php';
+$tracks = Tracks::getAllTracks($_SESSION['user_id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Daft Punk Library</title>
 </head>
 <body>
     <?php include 'menu.php'; ?>
     <br>
-    <?php echo 'Hello ' . ($_SESSION['username'] ?? ''); ?><br><br>
+    <h1>Daft Punk Library</h1>
+    <?php if (isset($_GET['welcome']) && $_GET['welcome'] == 1): ?>
+        <p><strong>Veridis Quo!</strong></p>
+    <?php endif; ?>
+    <p>Welcome back, <?= $_SESSION['username'] ?? '' ?></p>
     <table border="1">
         <tr>
-            <td>ID</td>
+            <td>#</td>
             <td>Title</td>
-            <td>Author</td>
-            <td>Genre</td>
-            <td>Year</td>
-            <td>Description</td>
+            <td>Artist</td>
+            <td>Album</td>
+            <td>Release year</td>
+            <td>Notes</td>
             <td>Action</td>
         </tr>
         <?php
-        foreach ($books as $book) {
+        foreach ($tracks as $track) {
             echo '<tr>';
-            echo '<td>' . $book['id'] . '</td>';
-            echo '<td>' . $book['title'] . '</td>';
-            echo '<td>' . $book['author'] . '</td>';
-            echo '<td>' . $book['genre'] . '</td>';
-            echo '<td>' . $book['published_year'] . '</td>';
-            echo '<td>' . $book['description'] . '</td>';
+            echo '<td>' . $track['id'] . '</td>';
+            echo '<td>' . $track['title'] . '</td>';
+            echo '<td>' . $track['artist'] . '</td>';
+            echo '<td>' . $track['album'] . '</td>';
+            echo '<td>' . $track['release_year'] . '</td>';
+            echo '<td>' . $track['notes'] . '</td>';
             echo '<td>
-            <a href="book_view.php?id=' . $book['id'] . '">[View]</a>
-            <a href="edit_book.php?id=' . $book['id'] . '">[Edit]</a>
-            <a href="delete_book.php?id=' . $book['id'] . '">[Delete]</a>
+            <a href="track_view.php?id=' . $track['id'] . '">[View]</a>
+            <a href="edit_track.php?id=' . $track['id'] . '">[Edit]</a>
+            <a href="delete_track.php?id=' . $track['id'] . '">[Delete]</a>
             </td>';
             echo '</tr>';
         }

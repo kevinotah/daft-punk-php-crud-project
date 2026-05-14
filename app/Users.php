@@ -1,4 +1,8 @@
 <?php
+/*
+ Users manager — greetings may sometimes say "Veridis Quo!", "Short Circuit!", etc.
+ This file handles auth logic; UI text lives in the public pages.
+*/
 session_start();
 require_once 'Db.php';
 

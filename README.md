@@ -1,6 +1,11 @@
-# PHP Mini Project: Book Library
+# PHP Mini Project: Daft Punk Library
 
-This project is a simple native PHP web application for managing a small book library. It was built to match the style of the in-class PHP files: direct code, simple forms, sessions, PDO, and basic redirects.
+This project is a simple native PHP web application for managing a small Daft Punk track library. It was built to match the style of the in-class PHP files: direct code, simple forms, sessions, PDO, and basic redirects.
+
+Easter Eggs
+-----------
+
+This project contains many Daft Punk themed strings and small easter eggs in the UI (messages like "Veridis Quo!", "Short Circuit!", "Human After All"). They are purely textual; the application logic and database schema remain unchanged.
 
 ## What the App Does
 
@@ -8,13 +13,13 @@ A user can:
 
 - register a new account
 - log in and log out
-- add a book
-- read a list of books
-- view one book
-- edit a book
-- delete a book
+- add a track
+- read a list of tracks
+- view one track
+- edit a track
+- delete a track
 
-Each book belongs to one logged-in user.
+Each track belongs to one logged-in user.
 
 ## Project Structure
 
@@ -49,7 +54,7 @@ Open MySQL and run the SQL files in this order:
 1. `sql/schema.sql`
 2. `sql/seed.sql`
 
-This creates the database, tables, demo user, and sample books.
+This creates the database, tables, demo user, and sample tracks.
 
 ### 4. Open the App
 
@@ -93,6 +98,6 @@ The code uses:
 
 - `Db.php` for the PDO connection
 - `Users.php` for authentication
-- `Books.php` for the book records
+- `Tracks.php` for track records (CRUD operations)
 
 The goal was to keep the code simple and close to the classroom examples.
