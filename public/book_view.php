@@ -18,16 +18,22 @@ if (!$book) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View book</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <?php include 'menu.php'; ?>
-    <br>
-    <h1><?= $book->getTitle(); ?></h1>
-    <p>Author: <?= $book->getAuthor(); ?></p>
-    <p>Genre: <?= $book->getGenre(); ?></p>
-    <p>Published year: <?= $book->getPublishedYear(); ?></p>
-    <p>Description: <?= $book->getDescription(); ?></p>
-    <a href="edit_book.php?id=<?= $book->getId(); ?>">Edit</a>
-    <a href="delete_book.php?id=<?= $book->getId(); ?>">Delete</a>
+    <div class="page">
+        <div class="card">
+            <?php include 'menu.php'; ?>
+            <h1><?= $book->getTitle(); ?></h1>
+            <p><strong>Author:</strong> <?= $book->getAuthor(); ?></p>
+            <p><strong>Genre:</strong> <?= $book->getGenre(); ?></p>
+            <p><strong>Published year:</strong> <?= $book->getPublishedYear(); ?></p>
+            <p><strong>Description:</strong> <?= $book->getDescription(); ?></p>
+            <div class="actions">
+                <a class="button" href="edit_book.php?id=<?= $book->getId(); ?>">Edit</a>
+                <a class="button button-danger" href="delete_book.php?id=<?= $book->getId(); ?>">Delete</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
