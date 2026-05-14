@@ -17,18 +17,27 @@ if (!$track) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View track</title>
+    <title>View Track - Daft Punk Library</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <?php include 'menu.php'; ?>
-    <br>
-    <p>Feeling lucky? This track might be your anthem.</p>
-    <h1><?= $track->getTitle(); ?></h1>
-    <p>Artist: <?= $track->getArtist(); ?></p>
-    <p>Album: <?= $track->getAlbum(); ?></p>
-    <p>Release year: <?= $track->getReleaseYear(); ?></p>
-    <p>Notes: <?= $track->getNotes(); ?></p>
-    <a href="edit_track.php?id=<?= $track->getId(); ?>">Edit</a>
-    <a href="delete_track.php?id=<?= $track->getId(); ?>">Delete</a>
+    <div class="container">
+        <h1><?= htmlspecialchars($track->getTitle()); ?></h1>
+        <div class="info">
+            <p>Feeling lucky? This track might be your anthem.</p>
+        </div>
+        <div class="track-details">
+            <p><strong>Artist:</strong> <?= htmlspecialchars($track->getArtist()); ?></p>
+            <p><strong>Album:</strong> <?= htmlspecialchars($track->getAlbum()); ?></p>
+            <p><strong>Release Year:</strong> <?= $track->getReleaseYear(); ?></p>
+            <p><strong>Notes:</strong> <?= htmlspecialchars($track->getNotes()); ?></p>
+        </div>
+        <div style="margin-top: 20px;">
+            <a href="edit_track.php?id=<?= $track->getId(); ?>" class="btn">Edit</a>
+            <a href="delete_track.php?id=<?= $track->getId(); ?>" class="btn" style="border-color: #ff006e; color: #ff006e; text-shadow: 0 0 5px #ff006e;">Delete</a>
+            <a href="dashboard.php" class="btn">Back</a>
+        </div>
+    </div>
 </body>
 </html>

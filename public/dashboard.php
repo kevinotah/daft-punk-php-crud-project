@@ -12,44 +12,52 @@ $tracks = Tracks::getAllTracks($_SESSION['user_id']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daft Punk Library</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <?php include 'menu.php'; ?>
-    <br>
-    <h1>Daft Punk Library</h1>
-    <?php if (isset($_GET['welcome']) && $_GET['welcome'] == 1): ?>
-        <p><strong>Veridis Quo!</strong></p>
-    <?php endif; ?>
-    <p>Welcome back, <?= $_SESSION['username'] ?? '' ?></p>
-    <table border="1">
-        <tr>
-            <td>#</td>
-            <td>Title</td>
-            <td>Artist</td>
-            <td>Album</td>
-            <td>Release year</td>
-            <td>Notes</td>
-            <td>Action</td>
-        </tr>
-        <?php
-        $i = 1;
-        foreach ($tracks as $track) {
-            echo '<tr>';
-            echo '<td>' . $i . '</td>';
-            echo '<td>' . $track['title'] . '</td>';
-            echo '<td>' . $track['artist'] . '</td>';
-            echo '<td>' . $track['album'] . '</td>';
-            echo '<td>' . $track['release_year'] . '</td>';
-            echo '<td>' . $track['notes'] . '</td>';
-            echo '<td>
-            <a href="track_view.php?id=' . $track['id'] . '">[View]</a>
-            <a href="edit_track.php?id=' . $track['id'] . '">[Edit]</a>
-            <a href="delete_track.php?id=' . $track['id'] . '">[Delete]</a>
-            </td>';
-            echo '</tr>';
-            $i++;
-        }
-        ?>
-    </table>
+    <div class="container">
+        <h1>Daft Punk Library</h1>
+        <?php if (isset($_GET['welcome']) && $_GET['welcome'] == 1): ?>
+            <div class="message success">Veridis Quo!</div>
+        <?php endif; ?>
+        <div class="info">
+            <p class="welcome">Welcome back, <?= htmlspecialchars($_SESSION['username'] ?? ''); ?></p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Album</th>
+                    <th>Release Year</th>
+                    <th>Notes</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $i = 1;
+                foreach ($tracks as $track) {
+                    echo '<tr>';
+                    echo '<td>' . $i . '</td>';
+                    echo '<td>' . htmlspecialchars($track['title']) . '</td>';
+                    echo '<td>' . htmlspecialchars($track['artist']) . '</td>';
+                    echo '<td>' . htmlspecialchars($track['album']) . '</td>';
+                    echo '<td>' . $track['release_year'] . '</td>';
+                    echo '<td>' . htmlspecialchars($track['notes']) . '</td>';
+                    echo '<td>
+                    <a href="track_view.php?id=' . $track['id'] . '">[View]</a>
+                    <a href="edit_track.php?id=' . $track['id'] . '">[Edit]</a>
+                    <a href="delete_track.php?id=' . $track['id'] . '">[Delete]</a>
+                    </td>';
+                    echo '</tr>';
+                    $i++;
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
