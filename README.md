@@ -99,6 +99,28 @@ The demo credentials are displayed on the login page for easy reference:
 
 These credentials are pre-seeded in the database to allow graders and instructors to quickly view the app's functionality without creating a new account.
 
+## Screenshots
+
+### Login
+
+![Login page](docs/images/login.jpeg)
+
+### Register
+
+![Register page](docs/images/register.jpeg)
+
+### Dashboard
+
+![Dashboard page](docs/images/dashboard.jpeg)
+
+### Add Track
+
+![Add track page](docs/images/add_track.jpeg)
+
+### View Track
+
+![View track page](docs/images/view_track.jpeg)
+
 ## Project Requirements Compliance
 
 ### ✓ Authentication System
